@@ -26,8 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $background=DB::table('backgrounds')->get();
-        $unitKerja=DB::table('table_unit_kerja')->get();
-        View::share(['unitKerja' => $unitKerja, 'background' => $background]);
+        // $background=DB::table('backgrounds')->get();
+        // $unitKerja=DB::table('table_unit_kerja')->get();
+        // View::share(['unitKerja' => $unitKerja, 'background' => $background]);
     }
 }
