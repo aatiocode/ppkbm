@@ -1,0 +1,20 @@
+{
+  "name": "PKBMN",
+  "short_name": "PKBMN",
+  "display": "standalone",
+  "start_url": ".",
+  "theme_color": "#00332C",
+  "background_color": "#004D43",
+  "icons": [
+    {
+      "src": "/img/pkbmn/logo192.png",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    },
+    {
+      "src": "/img/pkbmn/logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
