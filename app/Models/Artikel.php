@@ -28,7 +28,6 @@ class Artikel extends Model
 
     public static function getArtikelLanding()
     {
-
         $select = [
             'artikel.*',
             'artikel_kategori.nama as nama_kategori'

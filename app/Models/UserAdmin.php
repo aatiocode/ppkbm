@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserAdmin extends Model
 {
-
     protected $table = 'admin';
     protected $fillable = ['nip', 'password'];
     protected $guarded = ['id', 'created_at', 'updated_at'];

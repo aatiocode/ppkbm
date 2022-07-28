@@ -25,7 +25,7 @@ class HomeController extends Controller
         if ($is_login) {
             return redirect('/admin');
         } else {
-          return redirect('/user/login');
+            return redirect('/user/login');
         }
     }
 }

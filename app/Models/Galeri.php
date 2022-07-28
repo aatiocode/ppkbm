@@ -29,7 +29,6 @@ class Galeri extends Model
 
     public static function getGaleriLanding()
     {
-
         $select = [
             'galeri.*',
             'galeri_event.nama as nama_event'
