@@ -25,6 +25,16 @@ Route::prefix('/api')->group(function(){
 Route::prefix('/')->group(function(){
 	Route::group(['middleware' => 'checkRole'], function() {
     Route::get('/', 'HomeController@index')->name('index');
+
+    Route::view('/tentang-kami', 'landing.tentangKami');
+    Route::view('/identitas', 'landing.identitas');
+    Route::view('/visi-misi', 'landing.visiMisi');
+    Route::view('/program-belajar', 'landing.programBelajar');
+    Route::view('/pengajar-dan-staff', 'landing.pengajarDanStaff');
+    Route::view('/galeri', 'landing.galeri');
+    Route::view('/artikel', 'landing.artikel');
+    Route::view('/bahan-ajar', 'landing.bahanAjar');
+    Route::view('/contact', 'landing.contact');
 	});
 
 	Route::group(['namespace' => 'User', 'as' => 'user.'], function() {

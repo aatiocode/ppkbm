@@ -62,7 +62,7 @@
 				</div>
 			</div>
 			<div class="col" id="main">
-				@component('components.header', ['unitKerja' => $unitKerja])
+				@component('components.header')
 				@endcomponent
 				@yield('content')
 			</div>
