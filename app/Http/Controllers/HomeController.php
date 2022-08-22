@@ -21,11 +21,6 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $is_login = $request->session()->get('is_login');
-        if ($is_login) {
-            return redirect('/admin');
-        } else {
-            return redirect('/user/login');
-        }
+        return view('landing.main');
     }
 }

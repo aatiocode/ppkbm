@@ -41,8 +41,8 @@
 					</div>
 				</div>
         <div class="form-group">
-					<label for="video">Video</label>
-					<input value="{{$artikel->video}}" type="text" class="form-control" id="video" name="video" maxlength="200" {{$artikel->view_only ? "disabled" : ""}} required>
+					<label for="video">Video <small class="text-danger">*hanya link embed video</small></label>
+					<input value="{{$artikel->video}}" type="text" class="form-control" id="video" name="video" maxlength="200" {{$artikel->view_only ? "disabled" : ""}}>
 				</div>
         <label for="status">Status</label>
         <div class="input-group mb-3">

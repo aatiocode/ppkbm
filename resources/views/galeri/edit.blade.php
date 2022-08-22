@@ -35,7 +35,7 @@
 				</div>
         <div class="form-group">
 					<label for="video">Video</label>
-					<input value="{{$galeri->video}}" type="text" class="form-control" id="video" name="video" {{$galeri->view_only ? "disabled" : ""}} maxlength="200" required>
+					<input value="{{$galeri->video}}" type="text" class="form-control" id="video" name="video" {{$galeri->view_only ? "disabled" : ""}} maxlength="200">
 				</div>
         <label for="status">Status</label>
         <div class="input-group mb-3">

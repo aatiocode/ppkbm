@@ -8,12 +8,12 @@
     <form class="col-lg-12 col-md-12 mt-4" action="{{url('/admin/artikel/add')}}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="form-group">
-        <label for="judul">Judul</label>
+        <label for="judul">Judul <span class="text-danger">*</span></label>
         <input placeholder="Judul"" value="{{ old('judul') }}" type="text" class="form-control" id="judul" name="judul" maxlength="200" required>
       </div>
       <div class="form-group">
         <label for="deskripsi_singkat">Deskripsi Singkat</label>
-        <input placeholder="Deskripsi Singkat"" value="{{ old('deskripsi_singkat') }}" type="text" class="form-control" id="deskripsi_singkat" name="deskripsi_singkat" maxlength="200" required>
+        <input placeholder="Deskripsi Singkat" value="{{ old('deskripsi_singkat') }}" type="text" class="form-control" id="deskripsi_singkat" name="deskripsi_singkat" maxlength="200">
       </div>
       <div class="form-group">
 				<label for="deskripsi">Deskripsi</label>
@@ -38,7 +38,7 @@
       </div>
       <div class="form-group">
         <label for="video">Video <small class="text-danger">*hanya link embed video</small></label>
-        <input placeholder="Contoh: https://www.youtube.com/embed/_7CX0hTDRtU" value="{{ old('video') }}" type="text" class="form-control" id="video" name="video" maxlength="200" required>
+        <input placeholder="Contoh: https://www.youtube.com/embed/_7CX0hTDRtU" value="{{ old('video') }}" type="text" class="form-control" id="video" name="video" maxlength="200">
       </div>
       <label for="status">Status</label>
       <div class="input-group mb-3">

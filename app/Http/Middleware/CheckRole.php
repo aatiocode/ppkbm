@@ -16,10 +16,6 @@ class CheckRole
      */
     public function handle($request, Closure $next)
     {
-        if ($request->session()->get('is_login')) {
-            return $next($request);
-        } else {
-            return redirect('/user/login');
-        }
+      return $next($request);
     }
 }

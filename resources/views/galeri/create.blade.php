@@ -32,7 +32,7 @@
 				</div>
         <div class="form-group">
 					<label for="video">Video <small class="text-danger">*hanya link embed video</small></label>
-					<input placeholder="Contoh: https://www.youtube.com/embed/_7CX0hTDRtU" value="{{ old('video') }}" type="text" class="form-control" id="video" name="video" maxlength="200" required>
+					<input placeholder="Contoh: https://www.youtube.com/embed/_7CX0hTDRtU" value="{{ old('video') }}" type="text" class="form-control" id="video" name="video" maxlength="200">
 				</div>
         <label for="status">Status</label>
         <div class="input-group mb-3">

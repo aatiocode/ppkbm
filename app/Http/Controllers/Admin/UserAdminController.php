@@ -24,14 +24,16 @@ class UserAdminController extends Controller
     public function index(Request $request)
     {
         $search =  $request->input('q');
-        $userAdmin = UserAdmin::getIndexAttribute();
+        $userAdmin = UserAdmin::paginate(10);
 
         if ($search != "") {
-            $userAdmin = UserAdmin::getIndexAttribute($search);
+            $userAdmin = UserAdmin::where(function ($query) use ($search) {
+                $query->where('nip', 'like', '%'.trim(strtolower($search)).'%');
+            })->paginate(10);
             $userAdmin->appends(['q' => $search]);
         }
 
-        $userCount = UserAdmin::getIndexAttribute();
+        $userCount = UserAdmin::paginate(10);
         $index = $userAdmin->firstItem();
 
         return View('userAdmin.index', compact('userAdmin', 'index', 'search', 'userCount'));
