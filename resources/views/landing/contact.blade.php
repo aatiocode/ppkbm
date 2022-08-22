@@ -20,28 +20,9 @@
     ** Google Map **
     =================================================== -->
     <section class="google-map">
-        <div id="map"><iframe src="https://snazzymaps.com/embed/21734" style="border:none;"></iframe></div>
+        <div id="map"></div>
         <div class="container">
-            <div class="contact-detail">
-                <div class="address">
-                    <div class="inner">
-                        <h3>Edumart</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has...</p>
-                    </div>
-                    <div class="inner">
-                        <h3>000 0000 000</h3>
-                    </div>
-                    <div class="inner"> <a href="mailto:info@edumart.com">info@edumart.com</a> </div>
-                </div>
-                <div class="contact-bottom">
-                    <ul class="follow-us clearfix">
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div>
+            <div class="contact-detail"></div>
         </div>
     </section>
 
@@ -76,4 +57,55 @@
             </form>
         </div>
     </section>
+@endsection
+
+@section('js')
+  <script>
+
+    function init(){
+      const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${btoa("{{ config('constants.header_username') }}:{{ config('constants.header_password') }}")}`
+      }
+
+      axios.get('{{url('/')}}/api/lokasi-sekolah', {
+        headers: headers
+      })
+      .then(({ data }) => {
+
+        $.each(data?.response?.lokasiSekolah, function (index, value) {
+          $('.inner-banner').css('background', `url(${value?.foto}) no-repeat center top / cover`)
+          $('#map').append(`
+            <iframe src="${value?.maps}" style="border:none;"></iframe>
+          `)
+          $('.contact-detail').append(`
+            <div class="address">
+              <div class="inner">
+                <h3>${value?.judul}</h3>
+                <p>${value?.alamat}</p>
+              </div>
+              <div class="inner">
+                <h3>${value?.phone}</h3>
+              </div>
+              <div class="inner"> <a href="${value?.email}">${value?.email}</a> </div>
+            </div>
+            <div class="contact-bottom">
+              <ul class="follow-us clearfix">
+                <li><a href="//${value?.facebook}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="//${value?.twitter}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="//${value?.instagram}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="//${value?.youtube}"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+          `)
+        });
+        $('#loading').fadeOut(1000);
+      })
+      .catch(() => {
+        $('#loading').fadeOut(1000);
+      })
+    }
+
+    init()
+  </script>
 @endsection

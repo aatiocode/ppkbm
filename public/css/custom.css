@@ -1603,7 +1603,6 @@ ul.our-strength li .title {
 -----------------------*/
 .testimonial {
 	display: block;
-    background: url(../images/testimonial-bg.jpg) no-repeat center top / cover;
 	text-align: center;
 	position: relative;
 }

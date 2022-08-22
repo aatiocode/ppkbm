@@ -32,8 +32,8 @@ class AmcHelper
     public static function displayActiveGroup($id, $isActive = "", $isView = false)
     {
         return '<select class="custom-select" id="'.$id.'" name="'.$id.'" '.($isView ? "disabled": "").'>
-      <option value="true" '. ($isActive == true ? "selected" : "") .'>True</option>
-      <option value="false" '. ($isActive == false ? "selected" : "") .'>False</option>
+      <option value="0" '. ($isActive == 0 ? "selected" : "") .'>False</option>
+      <option value="1" '. ($isActive == 1 ? "selected" : "") .'>True</option>
     </select>';
     }
 

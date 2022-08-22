@@ -43,6 +43,35 @@
   @yield('contentlanding')
   @include('landing/footer')
   @yield('js')
+  <script>
+
+    function initHeader(){
+      const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${btoa("{{ config('constants.header_username') }}:{{ config('constants.header_password') }}")}`
+      }
+
+      axios.get('{{url('/')}}/api/logo', {
+        headers: headers
+      })
+      .then(({ data }) => {
+        $.each(data?.response, function (index, value) {
+          $('.header-logo').attr('src', value.foto);
+          $('.contact-header').append(`
+            <li> <span>Email</span> <a href="mailto:${value.email}">${value.email}</a> </li>
+            <li> <span>Telp</span> ${value.phone}</li>
+          `)
+          $('.footer-logo-src').attr('src', value.foto);
+        })
+        $('#loading').fadeOut(1000);
+      })
+      .catch(() => {
+        $('#loading').fadeOut(1000);
+      })
+    }
+
+    initHeader()
+  </script>
   <!-- Optional JavaScript -->
   <script src="{{ asset('/js/jquery.min.js') }}"></script>
   <script src="{{ asset('/assets/bootstrap/js/bootstrap.min.js') }}"></script>

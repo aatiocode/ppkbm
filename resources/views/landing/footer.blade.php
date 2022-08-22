@@ -37,15 +37,16 @@
                           <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>  facebook</a></li>
                           <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i>  twitter</a></li>
                           <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i>  linkedin</a></li>
-                          <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i>  google plus</a></li>
                           <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i>  youtube</a></li>
                           <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>  instagram</a></li>
                       </ul>
                   </div>
               </div>
               <div class="col-sm-3">
-                  <div class="footer-logo hidden-xs"><a href="index.php"><img src="images/footer-logo.png" class="img-responsive" alt=""></a></div>
-                  <p>© 2018 <span>PPKBM</span>. All rights reserved</p>
+                  <div class="footer-logo hidden-xs">
+                    <a href="index.php"><img src="images/footer-logo.png" class="img-responsive footer-logo-src" alt=""></a>
+                  </div>
+                  <p>© {{ now()->year }} <span>PPKBM</span>. All rights reserved</p>
               </div>
           </div>
       </div>

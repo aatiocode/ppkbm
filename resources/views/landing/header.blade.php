@@ -20,14 +20,11 @@
   <!-- End Header top Bar -->
   <!-- Start Header Middle -->
   <div class="container header-middle">
-      <div class="row"> <span class="col-xs-6 col-sm-3"><a href="{{url('/')}}"><img src="images/logo.png" class="img-responsive" alt=""></a></span>
+      <div class="row"> <span class="col-xs-6 col-sm-3"><a href="{{url('/')}}"><img src="images/logo.png" class="img-responsive header-logo" alt=""></a></span>
           <div class="col-xs-6 col-sm-3"></div>
           <div class="col-xs-6 col-sm-9">
               <div class="contact clearfix">
-                  <ul class="hidden-xs">
-                      <li> <span>Email</span> <a href="mailto:info@edumart.org">info@edumart.org</a> </li>
-                      <li> <span>Telp</span> +62 812 1111 1111</li>
-                  </ul>
+                  <ul class="hidden-xs contact-header"></ul>
               </div>
           </div>
       </div>
