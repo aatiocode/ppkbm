@@ -27,6 +27,7 @@ Route::prefix('/api')->group(function(){
     Route::get('/program-belajar', 'LandingController@programBelajar');
     Route::get('/pengajar-dan-staff', 'LandingController@pengajarStaff');
     Route::get('/lokasi-sekolah', 'LandingController@lokasiSekolah');
+    Route::get('/artikel-detail', 'LandingController@artikelDetail');
 	});
 });
 
@@ -41,6 +42,7 @@ Route::prefix('/')->group(function(){
     Route::view('/pengajar-dan-staff', 'landing.pengajarDanStaff');
     Route::view('/galeri', 'landing.galeri');
     Route::view('/artikel', 'landing.artikel');
+    Route::view('/artikel-detail', 'landing.artikelDetail');
     Route::view('/bahan-ajar', 'landing.bahanAjar');
     Route::view('/contact', 'landing.contact');
 	});

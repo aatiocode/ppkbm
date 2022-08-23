@@ -34,7 +34,20 @@ class ArtikelController extends Controller
      */
     public function create()
     {
-        $kategoriArtikel = KategoriArtikel::get();
+        $kategoriArtikel = KategoriArtikel::whereNotIn('nama', [
+          config('constants.header_logo'),
+          config('constants.carousel_halaman_utama'),
+          config('constants.tentang_kami'),
+          config('constants.paket_pendidikan'),
+          config('constants.testimoni'),
+          config('constants.identitas'),
+          config('constants.visi_misi'),
+          config('constants.program_belajar'),
+          config('constants.lokasi_sekolah'),
+          config('constants.pengajar_dan_staff'),
+          config('constants.paket_pendidikan'),
+          config('constants.paket_pendidikan')
+      ])->get();
         return view('artikel.create', compact('kategoriArtikel'));
     }
 
@@ -72,7 +85,6 @@ class ArtikelController extends Controller
         $artikel->status = $request->status;
         $artikel->created_by = Session::get('nip');
         $artikel->updated_by = Session::get('nip');
-        echo json_encode($artikel);
         $artikel->save();
 
         $artikel = Artikel::latest()->first();
