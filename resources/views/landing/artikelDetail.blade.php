@@ -1,7 +1,6 @@
 @extends('landing/index')
 @section('contentlanding')
-
-    <!-- ==============================================
+<!-- ==============================================
     ** Inner Banner **
     =================================================== -->
     <div class="inner-banner blog">
@@ -9,7 +8,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="content">
-                        <h1>Artikel</h1>
+                        <h1>Blog</h1>
                     </div>
                 </div>
             </div>
@@ -17,13 +16,13 @@
     </div>
 
     <!-- ==============================================
-    ** Blog **
+    ** Blog Detail **
     =================================================== -->
     <div class="container blog-wrapper padding-lg">
         <div class="row">
             <!-- Start Left Column -->
             <div class="col-sm-8 blog-left">
-                <ul class="blog-listing latest-article"></ul>
+                <ul class="blog-listing detail artikel-detail"></ul>
             </div>
             <!-- End Left Column -->
 
@@ -33,7 +32,6 @@
         </div>
     </div>
 @endsection
-
 @section('js')
   <script>
 
@@ -43,6 +41,34 @@
     }
 
     function init(){
+      axios.get(`{{url('/')}}/api/artikel-detail?id=${"{{ Request::get('id') }}"}`, {
+        headers: headers
+      })
+      .then(({ data }) => {
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        const d = new Date(data?.response?.created_at);
+        const date = d.getDate()
+        const month = months[d.getMonth()];
+        const year = d.getFullYear();
+
+        $('.artikel-detail').append(`
+        <li> <img src="${data?.response?.foto}" class="img-responsive" alt="">
+            <h2>${data?.response?.judul}</h2>
+            <ul class="post-detail">
+                <li><span class="icon-date-icon ico"></span><span class="bold">${date} ${month}</span> ${year}</li>
+            </ul>
+            <p>${data?.response?.deskripsi}</p>
+        </li>
+          `)
+        $('#loading').fadeOut(1000);
+      })
+      .catch(() => {
+        $('#loading').fadeOut(1000);
+      })
+    }
+
+    function initSidebar(){
       axios.get('{{url('/')}}/api/artikel', {
         headers: headers
       })
@@ -84,16 +110,6 @@
           `)
         });
 
-        $('.latest-article').append(`
-          <li> <img src="${data?.response[0].foto}" class="img-responsive" alt="" width="750" height="415">
-              <h2>${data?.response[0].judul}</h2>
-              <ul class="post-detail">
-                  <li><span class="icon-date-icon ico"></span><span class="bold">${date} ${month}</span> ${year}</li>
-              </ul>
-              <p>${data?.response[0].deskripsi_singkat}</p>
-              <a href="{{url('/artikel-detail?id=${btoa(data?.response[0].id)}')}}" class="read-more"><span class="icon-play-icon"></span>Baca Selengkapnya ...</a>
-          </li>
-          `)
         $('#loading').fadeOut(1000);
       })
       .catch(() => {
@@ -102,5 +118,6 @@
     }
 
     init()
+    initSidebar()
   </script>
 @endsection

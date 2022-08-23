@@ -23,7 +23,21 @@ class KategoriArtikelController extends Controller
     {
         $artikel = KategoriArtikel::orderBy('id', 'asc')->paginate(10);
         $index = $artikel->firstItem();
-        return view('kategoriArtikel.index', compact('artikel', 'index'));
+        $kategoriArtikelConstants = [
+            config('constants.header_logo'),
+            config('constants.carousel_halaman_utama'),
+            config('constants.tentang_kami'),
+            config('constants.paket_pendidikan'),
+            config('constants.testimoni'),
+            config('constants.identitas'),
+            config('constants.visi_misi'),
+            config('constants.program_belajar'),
+            config('constants.lokasi_sekolah'),
+            config('constants.pengajar_dan_staff'),
+            config('constants.paket_pendidikan'),
+            config('constants.paket_pendidikan')
+        ];
+        return view('kategoriArtikel.index', compact('artikel', 'index', 'kategoriArtikelConstants'));
     }
 
     /**
@@ -58,8 +72,6 @@ class KategoriArtikelController extends Controller
         $kategoriArtikel->status = $request->status;
         $kategoriArtikel->created_by = Session::get('nip');
         $kategoriArtikel->updated_by = Session::get('nip');
-
-        echo $kategoriArtikel;
         $kategoriArtikel->save();
 
         $artikel = KategoriArtikel::latest()->first();

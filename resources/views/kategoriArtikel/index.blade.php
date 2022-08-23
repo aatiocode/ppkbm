@@ -37,9 +37,11 @@
                         <a href="{{url('/admin/kategori-artikel/'.base64_encode($kategoriArtikel->id).'/edit')}}" class="text-info mx-2">
                           <i class="far fa-edit"></i>
                         </a>
-                        <a class="text-danger" onclick="deleteFunction(btoa({{$kategoriArtikel->id}}))" href="#">
-                          <i class="far fa-trash-alt"></i>
-                        </a>
+                        @if(!in_array($kategoriArtikel->nama, $kategoriArtikelConstants))
+                          <a class="text-danger" onclick="deleteFunction(btoa({{$kategoriArtikel->id}}))" href="#">
+                            <i class="far fa-trash-alt"></i>
+                          </a>
+                        @endif
 											</div>
 										</td>
 									</tr>

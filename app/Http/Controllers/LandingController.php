@@ -170,4 +170,20 @@ class LandingController extends Controller
             return response()->json(Helper::returnResponse(Lang::get('static.error'), Lang::get('static.bad_request'), []), Lang::get('static.bad_request'));
         }
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function artikelDetail(Request $request)
+    {
+        $id = base64_decode($request->query('id'));
+        try {
+            $artikel = Artikel::where('id', $id)->first();
+            return response()->json(Helper::returnResponse(Lang::get('static.success'), Lang::get('static.success_code'), $artikel), Lang::get('static.success_code'));
+        } catch (\Exception $e) {
+            return response()->json(Helper::returnResponse(Lang::get('static.error'), Lang::get('static.bad_request'), []), Lang::get('static.bad_request'));
+        }
+    }
 }

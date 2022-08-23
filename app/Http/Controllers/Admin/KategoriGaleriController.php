@@ -58,8 +58,6 @@ class KategoriGaleriController extends Controller
         $kategoriGaleri->status = $request->status;
         $kategoriGaleri->created_by = Session::get('nip');
         $kategoriGaleri->updated_by = Session::get('nip');
-
-        echo $kategoriGaleri;
         $kategoriGaleri->save();
 
         $galleries = KategoriGaleri::latest()->first();
