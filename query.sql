@@ -85,5 +85,19 @@ CREATE TABLE admin (
 INSERT INTO `admin` (`id`, `nip`, `nama_lengkap`, `email`, `password`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`)
 VALUES
 	(1, 'P123', 'test123', 'test@mail.com', '$2y$10$XY9Ppw1m2Om3gOY.EVVItOFmCKm7gy2by6csn0pZQUex5jGyeMy76', 1, '2022-08-15 15:31:15', NULL, NULL, NULL);
+
+
+INSERT INTO `artikel_kategori` (`id`, `nama`, `status`, `created_by`, `created_at`, `updated_by`, `updated_at`)
+VALUES
+	(1, 'tentang kami', 1, 'P123', '2022-08-15 15:56:05', 'P123', '2022-08-15 15:56:05'),
+	(2, 'paket pendidikan', 1, 'P123', '2022-08-15 15:59:06', 'P123', '2022-08-15 15:59:06'),
+	(3, 'testimoni', 1, 'P123', '2022-08-15 16:06:30', 'P123', '2022-08-15 16:06:30'),
+	(4, 'identitas sekolah', 1, 'P123', '2022-08-16 02:02:21', 'P123', '2022-08-16 02:04:34'),
+	(5, 'visi dan misi', 1, 'P123', '2022-08-16 02:06:17', 'P123', '2022-08-16 02:06:17'),
+	(6, 'program belajar', 1, 'P123', '2022-08-16 02:10:20', 'P123', '2022-08-16 02:10:20'),
+	(7, 'header logo', 1, 'P123', '2022-08-19 03:25:57', 'P123', '2022-08-19 03:25:57'),
+	(8, 'lokasi sekolah', 1, 'P123', '2022-08-19 04:10:02', 'P123', '2022-08-19 04:10:02'),
+	(9, 'pengajar dan staff', 1, 'P123', '2022-08-19 05:50:11', 'P123', '2022-08-19 05:50:11');
+
 	
 
